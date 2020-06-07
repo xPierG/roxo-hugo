@@ -189,8 +189,8 @@
       margin-bottom: 30px;
       img{
         width: 48%;
-        vertical-align:middle;
-        margin: 2px 0px; 
+        /*vertical-align:middle;*/
+        margin: 2px; 
         &:nth-child(2n){
           margin-left: auto;
         }
