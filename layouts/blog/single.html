@@ -1,5 +1,10 @@
 {{ define "main" }}
 
+{{ $my_image := site.Params.blog.feature_image }}
+{{ if .Params.feature_image }}
+    {{ $my_image = .Params.feature_image }}
+{{ end }}
+
 <section class="site-blog details">
   <div class="container">
     <div class="row justify-content-center">
@@ -7,7 +12,8 @@
         <article class="site-blog-details">
           <p><span>{{ .PublishDate.Format "January 2, 2006" }}</span> by <span>{{ .Params.author }}</span></p>
           <h2 class="blog-title">{{ .Title }}</h2>
-          <img class="feature-image" src="{{ .Params.feature_image | absURL }}" alt="blog-feature-image">
+<!--          <img class="feature-image" src="{{ .Params.feature_image | absURL }}" alt="blog-feature-image"> -->
+          <img class="feature-image" src="{{ $my_image | absURL }}" alt="blog-feature-image">
           {{ .Content }}
         </article>
       </div>
