@@ -26,6 +26,28 @@ body {
   }
 }
 
+.section-titleBigger{
+  padding: 40px 0;
+  overflow: hidden;
+  margin-bottom: 0px;
+  @include desktop{
+    text-align: center;
+  }
+  h2{
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    @include desktop{
+      font-size: 40px;
+    }
+  }
+  p{
+    font-size: 25px;
+    font-weight: 300;
+  }
+}
+
 .form-control{
   background: transparent;
   border-radius: 0;
