@@ -12,13 +12,18 @@
           </div>
           <div class="site-about-description">
             <p>
-              {{ .Description }}
+              {{ .Params.description }}
             </p>
           </div>
           <div class="site-about-single">
-              {{ .Content }}
+                {{ .Content }}
           </div>
-      </div>
+          <div class="site-project-single-image">
+            {{ range .Params.project_images }}
+                <img src="{{ . | absURL }}" alt="project image"> 
+            {{ end }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
