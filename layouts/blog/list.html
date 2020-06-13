@@ -13,23 +13,17 @@
   </div>
 </section>
 
-{{ $my_image := site.Params.blog.image }}
-{{ if .Params.image }}
-    {{ $my_image = .Params.image }}
-{{ end }}
-
 <section class="site-blog">
   <div class="container">
     <div class="row">
       {{ range (.Paginator 4).Pages }}
       <div class="col-lg-6">
         <article class="site-blog-post">
-          <!-- PierG: manage default when no image is provided in blog post
-          {{ with .Params.image }}
-          <div class="site-blog-post-thumb">
-            <img src="{{ . | absURL }}" alt="post-thumb">
-          </div>
-          {{ end }}-->
+          <!-- PierG: manage default when no image is provided in blog post -->
+          {{ $my_image := site.Params.blog.image }}
+          {{ if .Params.image }}
+              {{ $my_image = .Params.image }}
+          {{ end }}
           <div class="site-blog-post-thumb">
             <img src="{{ $my_image | absURL }}" alt="post-thumb">
           </div>
