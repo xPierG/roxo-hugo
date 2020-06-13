@@ -9,14 +9,25 @@
             <p>{{ .subtitle }}</p>
           </div>
         </div>
+
         {{ range first 4 (where $.Site.RegularPages "Type" "blog") }}
         <div class="col-lg-6">
           <article class="site-blog-post">
+            <!-- susbstitute do handle no images in post
             {{ with .Params.image }}
             <div class="site-blog-post-thumb">
               <img src="{{ . | absURL }}" alt="post-thumb">
             </div>
+            {{ end }}-->
+            <!-- PierG: manage default when no image is provided in blog post -->
+            {{ $my_image := site.Params.blog.image }}
+            {{ if .Params.image }}
+                {{ $my_image = .Params.image }}
             {{ end }}
+            <div class="site-blog-post-thumb">
+              <img src="{{ $my_image | absURL }}" alt="post-thumb">
+            </div>
+
             <div class="site-blog-post-content">
               <span>{{ .PublishDate.Format "January 2, 2006" }}</span>
               <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
